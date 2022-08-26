@@ -57,12 +57,11 @@ class UrlLinkifier extends Linkifier {
                   originalUrl;
             }
 
-            if (options.canModifyText && (options.humanize) ||
-                (options.removeWww)) {
-              if (options.humanize) {
+            if (options.humanize || options.removeWww) {
+              if (options.canModifyText && options.humanize) {
                 url = url.replaceFirst(RegExp(r'https?://'), '');
               }
-              if (options.removeWww) {
+              if (options.canModifyText && options.removeWww) {
                 url = url.replaceFirst(RegExp(r'www\.'), '');
               }
 
