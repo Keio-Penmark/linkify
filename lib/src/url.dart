@@ -21,7 +21,8 @@ class UrlLinkifier extends Linkifier {
   const UrlLinkifier();
 
   @override
-  List<LinkifyElement> parse(elements, options) {
+  List<LinkifyElement> parse(
+      List<LinkifyElement> elements, LinkifyOptions options) {
     final list = <LinkifyElement>[];
 
     elements.forEach((element) {
@@ -56,7 +57,8 @@ class UrlLinkifier extends Linkifier {
                   originalUrl;
             }
 
-            if ((options.humanize) || (options.removeWww)) {
+            if (options.canModifyText && (options.humanize) ||
+                (options.removeWww)) {
               if (options.humanize) {
                 url = url.replaceFirst(RegExp(r'https?://'), '');
               }

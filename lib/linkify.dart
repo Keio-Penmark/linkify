@@ -55,6 +55,9 @@ abstract class Linkifier {
 }
 
 class LinkifyOptions {
+  //allow to modify the output text/url
+  final bool canModifyText;
+
   /// Removes http/https from shown URLs.
   final bool humanize;
 
@@ -76,6 +79,7 @@ class LinkifyOptions {
     this.looseUrl = false,
     this.defaultToHttps = false,
     this.excludeLastPeriod = true,
+    this.canModifyText = true,
   });
 }
 
